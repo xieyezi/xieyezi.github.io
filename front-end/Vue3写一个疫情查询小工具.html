@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Vue3写一个疫情查询小工具 | xieyezi</title>
+    <meta name="description" content="">
+    <meta name="generator" content="VuePress 1.8.0">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+    <meta name="description" content="Hi,我是写夜子">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="preload" href="/assets/css/0.styles.ed6e0f15.css" as="style"><link rel="preload" href="/assets/js/app.7334e4b9.js" as="script"><link rel="preload" href="/assets/js/3.623e43ba.js" as="script"><link rel="preload" href="/assets/js/20.97c57d8d.js" as="script"><link rel="prefetch" href="/assets/js/10.d33cb3fc.js"><link rel="prefetch" href="/assets/js/11.cc4dde22.js"><link rel="prefetch" href="/assets/js/12.e6e74628.js"><link rel="prefetch" href="/assets/js/13.dc35e2b8.js"><link rel="prefetch" href="/assets/js/14.136331b6.js"><link rel="prefetch" href="/assets/js/15.51317d5e.js"><link rel="prefetch" href="/assets/js/16.7cfca881.js"><link rel="prefetch" href="/assets/js/17.c0f3d818.js"><link rel="prefetch" href="/assets/js/18.e8851ded.js"><link rel="prefetch" href="/assets/js/19.ad4f68c8.js"><link rel="prefetch" href="/assets/js/21.a59c7364.js"><link rel="prefetch" href="/assets/js/22.3066e913.js"><link rel="prefetch" href="/assets/js/23.b644f035.js"><link rel="prefetch" href="/assets/js/24.74671ff5.js"><link rel="prefetch" href="/assets/js/25.80014848.js"><link rel="prefetch" href="/assets/js/26.87432805.js"><link rel="prefetch" href="/assets/js/27.6575c98e.js"><link rel="prefetch" href="/assets/js/28.2397055f.js"><link rel="prefetch" href="/assets/js/29.5c239d49.js"><link rel="prefetch" href="/assets/js/30.9c01c601.js"><link rel="prefetch" href="/assets/js/31.e605cf5d.js"><link rel="prefetch" href="/assets/js/32.c23e3719.js"><link rel="prefetch" href="/assets/js/33.00f1221a.js"><link rel="prefetch" href="/assets/js/34.9c8a3825.js"><link rel="prefetch" href="/assets/js/35.2b2801dd.js"><link rel="prefetch" href="/assets/js/36.945a72e8.js"><link rel="prefetch" href="/assets/js/37.862a5f1a.js"><link rel="prefetch" href="/assets/js/38.96c2314b.js"><link rel="prefetch" href="/assets/js/39.680d9e48.js"><link rel="prefetch" href="/assets/js/4.b04dad39.js"><link rel="prefetch" href="/assets/js/40.cb42f7e8.js"><link rel="prefetch" href="/assets/js/41.59de79c0.js"><link rel="prefetch" href="/assets/js/42.913cc728.js"><link rel="prefetch" href="/assets/js/43.6113c306.js"><link rel="prefetch" href="/assets/js/44.5ab84295.js"><link rel="prefetch" href="/assets/js/45.2ec36e67.js"><link rel="prefetch" href="/assets/js/46.72ecca36.js"><link rel="prefetch" href="/assets/js/47.a44ae3ec.js"><link rel="prefetch" href="/assets/js/48.56cdf5f3.js"><link rel="prefetch" href="/assets/js/49.356a6901.js"><link rel="prefetch" href="/assets/js/5.9d709f31.js"><link rel="prefetch" href="/assets/js/50.be45262c.js"><link rel="prefetch" href="/assets/js/51.2261c253.js"><link rel="prefetch" href="/assets/js/52.c72914bc.js"><link rel="prefetch" href="/assets/js/53.c785307c.js"><link rel="prefetch" href="/assets/js/54.a71848bb.js"><link rel="prefetch" href="/assets/js/55.f2d9c17e.js"><link rel="prefetch" href="/assets/js/56.46710347.js"><link rel="prefetch" href="/assets/js/57.00bcb3dc.js"><link rel="prefetch" href="/assets/js/58.fb8a784c.js"><link rel="prefetch" href="/assets/js/59.d5cf9f4a.js"><link rel="prefetch" href="/assets/js/6.3fe38c46.js"><link rel="prefetch" href="/assets/js/60.b17ef7ec.js"><link rel="prefetch" href="/assets/js/7.e0c1aab9.js"><link rel="prefetch" href="/assets/js/8.175a13dd.js"><link rel="prefetch" href="/assets/js/9.b08451d5.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.ee9e8610.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ed6e0f15.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="ant-row"><div class="sidebar-button"><i aria-label="icon: bars" class="anticon anticon-bars"><svg viewBox="0 0 1024 1024" focusable="false" data-icon="bars" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M912 192H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 284H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 284H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM104 228a56 56 0 1 0 112 0 56 56 0 1 0-112 0zm0 284a56 56 0 1 0 112 0 56 56 0 1 0-112 0zm0 284a56 56 0 1 0 112 0 56 56 0 1 0-112 0z"></path></svg></i> <span></span></div> <div class="ant-col ant-col-xs-24 ant-col-sm-24 ant-col-md-6 ant-col-lg-5 ant-col-xl-5 ant-col-xxl-4"><a href="/" class="router-link-active home-link"><img src="/logo.png" alt="xieyezi" class="logo"> <span class="site-name">xieyezi</span></a> <div class="search-box mobile-search"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div></div> <div class="ant-col ant-col-xs-0 ant-col-sm-0 ant-col-md-18 ant-col-lg-19 ant-col-xl-19 ant-col-xxl-20"><form id="search-form" role="search" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><ul role="menu" id="nav" class="ant-menu ant-menu-horizontal ant-menu-root ant-menu-light"><li role="menuitem" class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu" style="display:none;"><div aria-haspopup="true" class="ant-menu-submenu-title"><span>···</span><i class="ant-menu-submenu-arrow"></i></div></li><li role="menuitem" class="ant-menu-item"><a href="/" class="router-link-active">
+          首页
+        </a></li><li role="menuitem" class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu" style="display:none;"><div aria-haspopup="true" class="ant-menu-submenu-title"><span>···</span><i class="ant-menu-submenu-arrow"></i></div></li><li role="menuitem" class="ant-menu-item ant-menu-item-selected"><a href="/front-end/" class="router-link-active">
+          🍃前端
+        </a></li><li role="menuitem" class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu" style="display:none;"><div aria-haspopup="true" class="ant-menu-submenu-title"><span>···</span><i class="ant-menu-submenu-arrow"></i></div></li><li role="menuitem" class="ant-menu-submenu ant-menu-submenu-horizontal"><div aria-haspopup="true" class="ant-menu-submenu-title"><span>
+          🌿Flutter
+        </span><i class="ant-menu-submenu-arrow"></i></div></li><li role="menuitem" class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu" style="display:none;"><div aria-haspopup="true" class="ant-menu-submenu-title"><span>···</span><i class="ant-menu-submenu-arrow"></i></div></li><li role="menuitem" class="ant-menu-submenu ant-menu-submenu-horizontal"><div aria-haspopup="true" class="ant-menu-submenu-title"><span>
+          🌱其他
+        </span><i class="ant-menu-submenu-arrow"></i></div></li><li role="menuitem" class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu" style="display:none;"><div aria-haspopup="true" class="ant-menu-submenu-title"><span>···</span><i class="ant-menu-submenu-arrow"></i></div></li><li role="menuitem" class="ant-menu-submenu ant-menu-submenu-horizontal"><div aria-haspopup="true" class="ant-menu-submenu-title"><span>
+          🌈联系
+        </span><i class="ant-menu-submenu-arrow"></i></div></li><li role="menuitem" class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu" style="visibility:hidden;position:absolute;"><div aria-haspopup="true" class="ant-menu-submenu-title"><span>···</span><i class="ant-menu-submenu-arrow"></i></div></li></ul> <a href="https://github.com/xieyezi/vuepress-blog" target="_blank" rel="noopener noreferrer" class="repo-link"><i aria-label="icon: github" class="anticon anticon-github"><svg viewBox="64 64 896 896" focusable="false" data-icon="github" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9a127.5 127.5 0 0 1 38.1 91v112.5c.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z"></path></svg></i></a></nav></div></div> <!----></header> <aside class="sidebar"><!----> <ul class="sidebar-links"><li><a href="/front-end/" aria-current="page" title="前端" class="sidebar-link">前端</a></li><li><a href="/front-end/vuex5要解决哪些问题.html" title="vuex5要解决哪些问题" class="sidebar-link">vuex5要解决哪些问题</a></li><li><a href="/front-end/如何构建你自己的React.html" title="如何构建你自己的React" class="sidebar-link">如何构建你自己的React</a></li><li><a href="/front-end/商品多规格选择-sku算法.html" title="商品多规格选择-sku算法" class="sidebar-link">商品多规格选择-sku算法</a></li><li><a href="/front-end/react入门必知必会知识点.html" title="react 入门必知必会知识点(万字总结)" class="sidebar-link">react 入门必知必会知识点(万字总结)</a></li><li><a href="/front-end/Vue3写一个疫情查询小工具.html" title="Vue3写一个疫情查询小工具" class="active sidebar-link">Vue3写一个疫情查询小工具</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/front-end/Vue3写一个疫情查询小工具.html#vue3-简单知识" title="Vue3 简单知识" class="sidebar-link">Vue3 简单知识</a></li></ul></li><li><a href="/front-end/2019nCoV疫情地图.html" title="2019nCoV疫情地图" class="sidebar-link">2019nCoV疫情地图</a></li><li><a href="/front-end/javascript原型与原型链的深度解析.html" title="javascript原型与原型链的深度解析" class="sidebar-link">javascript原型与原型链的深度解析</a></li><li><a href="/front-end/React基础知识.html" title="React基础知识" class="sidebar-link">React基础知识</a></li><li><a href="/front-end/Vue.$nextTick解析.html" title="Vue.$nextTick解析" class="sidebar-link">Vue.$nextTick解析</a></li><li><a href="/front-end/一些语法块.html" title="一些语法块" class="sidebar-link">一些语法块</a></li><li><a href="/front-end/防抖和节流.html" title="防抖和节流" class="sidebar-link">防抖和节流</a></li><li><a href="/front-end/import 和 require 的区别.html" title="import 和 require 的区别" class="sidebar-link">import 和 require 的区别</a></li><li><a href="/front-end/WIndows搭建最完美的VS code开发平台.html" title="WIndows搭建最完美的VS code开发平台" class="sidebar-link">WIndows搭建最完美的VS code开发平台</a></li><li><a href="/front-end/hexo+github+netlify搭建个人博客.html" title="hexo+github+netlify搭建个人博客" class="sidebar-link">hexo+github+netlify搭建个人博客</a></li><li><a href="/front-end/VueX的相关使用.html" title="VueX的相关使用" class="sidebar-link">VueX的相关使用</a></li><li><a href="/front-end/Vue使用axios的get和post请求.html" title="Vue使用axios的get和post请求" class="sidebar-link">Vue使用axios的get和post请求</a></li><li><a href="/front-end/Vue多个组件映射到同一个组件,页面不刷新？.html" title="Vue多个组件映射到同一个组件,页面不刷新？" class="sidebar-link">Vue多个组件映射到同一个组件,页面不刷新？</a></li><li><a href="/front-end/Tomcat的配置域名访问.html" title="Tomcat的配置域名访问" class="sidebar-link">Tomcat的配置域名访问</a></li><li><a href="/front-end/Vue Cli3.0请求本地模拟数据.html" title="Vue Cli3.0请求本地模拟数据" class="sidebar-link">Vue Cli3.0请求本地模拟数据</a></li><li><a href="/front-end/Vue-cli 3.0解决跨域问题.html" title="Vue-cli 3.0解决跨域问题" class="sidebar-link">Vue-cli 3.0解决跨域问题</a></li><li><a href="/front-end/Vue-cli3.0+Hbuilder打包App.html" title="Vue-cli3.0+Hbuilder打包App" class="sidebar-link">Vue-cli3.0+Hbuilder打包App</a></li><li><a href="/front-end/Vue开发环境的搭建.html" title="Vue开发环境的搭建" class="sidebar-link">Vue开发环境的搭建</a></li><li><a href="/front-end/Vue插槽与缓存.html" title="Vue插槽与缓存" class="sidebar-link">Vue插槽与缓存</a></li><li><a href="/front-end/Vue组件.html" title="Vue组件" class="sidebar-link">Vue组件</a></li><li><a href="/front-end/Vue组件库iView的使用.html" title="Vue组件库iView的使用" class="sidebar-link">Vue组件库iView的使用</a></li><li><a href="/front-end/Vue路由的基本加载.html" title="Vue路由的基本加载" class="sidebar-link">Vue路由的基本加载</a></li><li><a href="/front-end/Vue过渡与动画.html" title="Vue过渡与动画" class="sidebar-link">Vue过渡与动画</a></li><li><a href="/front-end/better-scroll插件初始化后没有效果.html" title="better-scroll插件初始化后没有效果" class="sidebar-link">better-scroll插件初始化后没有效果</a></li><li><a href="/front-end/call和apply的区别.html" title="call和apply的区别" class="sidebar-link">call和apply的区别</a></li><li><a href="/front-end/css超出部分显示省略号.html" title="css超出部分显示省略号" class="sidebar-link">css超出部分显示省略号</a></li><li><a href="/front-end/nginx给tomcat配置反向代理.html" title="nginx给tomcat配置反向代理" class="sidebar-link">nginx给tomcat配置反向代理</a></li><li><a href="/front-end/promise的连续调用问题.html" title="promise的连续调用问题" class="sidebar-link">promise的连续调用问题</a></li><li><a href="/front-end/vue-amap的bug -Cannot read property 'Ac' of null.html" title="vue-amap的bug -Cannot read property 'Ac' of null" class="sidebar-link">vue-amap的bug -Cannot read property 'Ac' of null</a></li><li><a href="/front-end/子组件和父组件通信.html" title="子组件和父组件通信" class="sidebar-link">子组件和父组件通信</a></li><li><a href="/front-end/解决移动端300ms延迟点击的问题.html" title="解决移动端300ms延迟点击的问题" class="sidebar-link">解决移动端300ms延迟点击的问题</a></li><li><a href="/front-end/记一次自己封装NPM包的经历.html" title="记一次自己封装NPM包的经历" class="sidebar-link">记一次自己封装NPM包的经历</a></li><li><a href="/front-end/Es6的学习笔记1.html" title="Es6的学习笔记1" class="sidebar-link">Es6的学习笔记1</a></li><li><a href="/front-end/Es6的学习笔记2.html" title="Es6的学习笔记2" class="sidebar-link">Es6的学习笔记2</a></li><li><a href="/front-end/Gulp的基本使用.html" title="Gulp的基本使用" class="sidebar-link">Gulp的基本使用</a></li></ul></aside> <main class="page"> <div class="theme-antdocs-content content__default"><h1 id="vue3-写一个疫情查询小工具"><a href="#vue3-写一个疫情查询小工具" class="header-anchor">#</a> Vue3 写一个疫情查询小工具</h1> <p><img src="https://user-gold-cdn.xitu.io/2020/2/11/17033c7ed72a61bc?w=1600&amp;h=480&amp;f=png&amp;s=980699" alt="犹大you.png"></p> <blockquote><p><a href="http://www.xieyezi.com:9002/" target="_blank" rel="noopener noreferrer">线上地址<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a><br> <a href="https://github.com/xieyezi/2019-ncov-vue3-version" target="_blank" rel="noopener noreferrer">git 地址<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></blockquote> <p>因为疫情太过严重，只能呆在家，所以前几天用 <code>React</code>+ <code>Antd</code> 写了一个疫情查询小工具：<a href="https://juejin.im/post/5e3a4f7ae51d4527066e811b" target="_blank" rel="noopener noreferrer">React 版本<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>，也算为疫情的防控做了一点点贡献。这两天呢，看见 Vue3-Alpha 版本都出到 v3.0.0-alpha.4 了，如图：</p> <p><img src="https://user-gold-cdn.xitu.io/2020/2/11/17033c65a4c0e56f?w=1934&amp;h=586&amp;f=png&amp;s=140777" alt="vue-next">
+在这个版本中，主要的工作就只剩下处理服务器端渲染了，所以 Vu3 真的是指日可待了。同时官方呢希望我们能够积极试用 Vue 新版本。为了响应号召（只是因为在家太无聊了），所以我们来试一试利用<code>Vue3: Vue-Composition-Api</code> + <code>Typescript</code> 来重构我们的疫情查看小工具。</p> <h2 id="vue3-简单知识"><a href="#vue3-简单知识" class="header-anchor">#</a> Vue3 简单知识</h2> <p>开始动手之前，我们先来学习一点相关知识。</p> <h3 id="setup"><a href="#setup" class="header-anchor">#</a> setup</h3> <p><code>setup()</code> 函数是 vue3 中，专门为组件提供的新属性。它为我们使用 vue3 的 Composition API 新特性提供了统一的入口。setup 函数会在 <code>beforeCreate 之后</code>、<code>created</code> 。<code>setup()</code> 函数接收两个参数，<code>setup(props,context)</code>。其中:</p> <ul><li><code>props</code>: 接收 props 数据<br>
+在 props 中定义当前组件允许外界传递过来的参数名称：<div class="language-js extra-class"><pre class="language-js"><code>props<span class="token operator">:</span> <span class="token punctuation">{</span>
+  propsName<span class="token operator">:</span> String<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div>通过 setup 函数的第一个形参，接收 props 数据：<div class="language-js extra-class"><pre class="language-js"><code>  <span class="token function">setup</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>props<span class="token punctuation">.</span>p1<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+</code></pre></div></li> <li><code>context</code>: 这个上下文对象中包含了一些有用的属性，这些属性在 vue 2.x 中需要通过 this 才能访问到，在 vue 3.x 中，它们的访问方式如下:<div class="language-js extra-class"><pre class="language-js"><code>  <span class="token function">setup</span><span class="token punctuation">(</span><span class="token parameter">props<span class="token punctuation">,</span> context</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      context<span class="token punctuation">.</span>attrs
+      context<span class="token punctuation">.</span>slots
+      context<span class="token punctuation">.</span>parent
+      context<span class="token punctuation">.</span>root
+      context<span class="token punctuation">.</span>emit
+      context<span class="token punctuation">.</span>refs
+  <span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h3 id="reactive"><a href="#reactive" class="header-anchor">#</a> <code>reactive()</code></h3> <p><code>reactive()</code> 函数接收一个普通对象，返回一个响应式的数据对象。
+我们来看一下它的基本用法:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// js部分</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> reactive <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@vue/composition-api'</span>
+<span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     <span class="token comment">// 创建响应式数据对象</span>
+    <span class="token keyword">const</span> state <span class="token operator">=</span> <span class="token function">reactive</span><span class="token punctuation">(</span><span class="token punctuation">{</span>count<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+     <span class="token comment">// setup 函数中将响应式数据对象 return 出去，供 template 使用</span>
+    <span class="token keyword">return</span> state <span class="token comment">// 必须return</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// template里面使用</span>
+<span class="token operator">&lt;</span>p<span class="token operator">&gt;</span>当前的 count 值为：<span class="token punctuation">{</span><span class="token punctuation">{</span> state<span class="token punctuation">.</span>count <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+</code></pre></div><p>我们通过 <code>reactive</code>包裹的对象，return 之后，就相当于 Vue 2.x 的 <code>data()</code> hooks。 我们可以对其进行双向绑定等操作。</p> <h3 id="ref"><a href="#ref" class="header-anchor">#</a> ref</h3> <p><code>ref()</code> 函数用来根据给定的值创建一个响应式的数据对象，ref() 函数调用的返回值是一个对象，这个对象上只包含一个 .value 属性：</p> <div class="language-js extra-class"><pre class="language-js"><code>  <span class="token comment">// js部分</span>
+   <span class="token keyword">import</span> <span class="token punctuation">{</span> ref <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@vue/composition-api'</span>
+   <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       <span class="token comment">// 创建响应式数据对象 count，初始值为 0</span>
+       <span class="token keyword">const</span> count <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+       <span class="token comment">// 如果要访问 ref() 创建出来的响应式数据对象的值，必须通过 .value 属性才可以</span>
+       console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>count<span class="token punctuation">.</span>value<span class="token punctuation">)</span> <span class="token comment">// 输出 0</span>
+       <span class="token comment">// 让 count 的值 +1</span>
+       count<span class="token punctuation">.</span>value<span class="token operator">++</span>
+       <span class="token comment">// 再次打印 count 的值</span>
+       console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>count<span class="token punctuation">.</span>value<span class="token punctuation">)</span> <span class="token comment">// 输出 1</span>
+       <span class="token keyword">return</span> <span class="token punctuation">{</span>
+           count<span class="token punctuation">,</span>
+           name<span class="token operator">:</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">'zs'</span><span class="token punctuation">)</span>
+       <span class="token punctuation">}</span>
+   <span class="token punctuation">}</span>
+  <span class="token comment">// template里面使用</span>
+   <span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span><span class="token punctuation">{</span><span class="token punctuation">{</span>count<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">-</span><span class="token punctuation">{</span><span class="token punctuation">{</span>name<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+   <span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
+</code></pre></div><h3 id="开始动手"><a href="#开始动手" class="header-anchor">#</a> 开始动手</h3> <h4 id="初始化项目"><a href="#初始化项目" class="header-anchor">#</a> 初始化项目</h4> <p>首先我们利用 <code>Vue Cli</code> 脚手架 初始化我们的应用:</p> <p><img src="https://user-gold-cdn.xitu.io/2020/2/11/17033c65803ce2e0?w=1612&amp;h=472&amp;f=jpeg&amp;s=138583" alt="800126DB-4748-457C-A498-0CCB24025457.png"></p> <blockquote><p>注意，Use class-style component syntax ？ 这一项我们要选择为 no, 我们不用装饰器写法，我们要用 composition api 的写法</p></blockquote> <h4 id="搭建项目目录"><a href="#搭建项目目录" class="header-anchor">#</a> 搭建项目目录</h4> <p>然后开始搭建我们的项目目录：</p> <div class="language- extra-class"><pre class="language-text"><code>  ├── package-lock.json
+  ├── package.json
+  ├── public
+  │   ├── favicon.ico
+  │   └── index.html
+  ├── src
+  │   ├── App.vue
+  │   ├── assets
+  │   ├── components
+  │   ├── main.ts
+  │   ├── map
+  │   ├── pages
+  │   ├── plugins
+  │   ├── services
+  │   ├── shims-vue.d.ts
+  │   └── utils
+  ├── tsconfig.json
+  ├── vue.config.js
+  ├── yarn-error.log
+  └── yarn.lock
+</code></pre></div><p>page 目录:</p> <div class="language- extra-class"><pre class="language-text"><code>  ├── home
+  │   └── Home.vue
+  ├── line
+  │   └── TrendLine.vue
+  ├── map
+  │   └── Map.vue
+  ├── news
+  │   └── News.vue
+  ├── pie
+  │   └── Pie.vue
+  └── rumor
+      └── Rumor.vue
+</code></pre></div><h4 id="导入-vue-composition-api"><a href="#导入-vue-composition-api" class="header-anchor">#</a> 导入 Vue-Composition-Api</h4> <div class="language-js extra-class"><pre class="language-js"><code>yarn add @vue<span class="token operator">/</span>composition<span class="token operator">-</span>api  <span class="token comment">//根目录执行</span>
+<span class="token comment">// main.ts</span>
+<span class="token keyword">import</span> VueCompositionApi <span class="token keyword">from</span> <span class="token string">'@vue/composition-api'</span>
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>VueCompositionApi<span class="token punctuation">)</span>
+</code></pre></div><h4 id="创建根组件"><a href="#创建根组件" class="header-anchor">#</a> 创建根组件</h4> <p>我们将 Home 作为根组件，我们先来定义一下这个组件:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span>
+  createComponent<span class="token punctuation">,</span>
+  onMounted<span class="token punctuation">,</span>
+  onUnmounted<span class="token punctuation">,</span>
+  reactive<span class="token punctuation">,</span>
+<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;@vue/composition-api&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">createComponent</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">&quot;Home&quot;</span><span class="token punctuation">,</span>
+  components<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 生命周期部分</span>
+    <span class="token function">onMounted</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;onMounted...&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">onUnmounted</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;onUnmounted...&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><blockquote><p>通过 <code>createComponent函数</code> 结合 TypeScript 提供的类型推断来进行项目的开发。</p></blockquote> <h4 id="定义响应式数据"><a href="#定义响应式数据" class="header-anchor">#</a> 定义响应式数据</h4> <p>接着我们得定义一些响应的数据:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">HomeState</span> <span class="token punctuation">{</span>
+  newsList<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  caseList<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 在 setup()里面</span>
+    <span class="token keyword">const</span> origin<span class="token operator">:</span> HomeState <span class="token operator">=</span> <span class="token punctuation">{</span>
+    newsList<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    caseList<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">const</span> state <span class="token operator">=</span> <span class="token function">reactive</span><span class="token punctuation">(</span>origin<span class="token punctuation">)</span>
+</code></pre></div><h4 id="异步请求"><a href="#异步请求" class="header-anchor">#</a> 异步请求</h4> <p>接着我们需要发起异步请求初始化数据</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token comment">// methods</span>
+  <span class="token keyword">const</span> <span class="token function-variable function">getRumorList</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span><span class="token punctuation">.</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">const</span> <span class="token function-variable function">getTrendList</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span><span class="token punctuation">.</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">const</span> <span class="token function-variable function">initData</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span><span class="token punctuation">.</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// 在生命周期里面调用</span>
+  <span class="token function">onMounted</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'onMounted...'</span><span class="token punctuation">)</span>
+      <span class="token function">initData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token function">getRumorList</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token function">getTrendList</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="组件的导入及使用"><a href="#组件的导入及使用" class="header-anchor">#</a> 组件的导入及使用</h4> <p>假设我们要导入 <code>News</code>组件：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> News <span class="token keyword">from</span> <span class="token string">'@/pages/news/News.vue'</span>
+<span class="token comment">// components</span>
+components<span class="token operator">:</span> <span class="token punctuation">{</span>
+  News
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token operator">...</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// template 中使用</span>
+<span class="token operator">&lt;</span>News <span class="token operator">:</span>newlist<span class="token operator">=</span><span class="token string">&quot;state.newsList&quot;</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+</code></pre></div><p>组件内部:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> createComponent <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;@vue/composition-api&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">createComponent</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">&quot;News&quot;</span><span class="token punctuation">,</span>
+  props<span class="token operator">:</span> <span class="token punctuation">{</span>
+    newlist<span class="token operator">:</span> Array<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="docker-部署"><a href="#docker-部署" class="header-anchor">#</a> Docker 部署</h3> <div class="language- extra-class"><pre class="language-text"><code> # ncov-vue3 Dockerfile
+
+  #指定node镜像对项目进行依赖安装和打包
+  FROM node:10.16.0 AS builder
+  # 将容器的工作目录设置为/app(当前目录，如果/app不存在，WORKDIR会创建/app文件夹)
+  WORKDIR /app
+  COPY package.json /app/
+  RUN npm config set registry &quot;https://registry.npm.taobao.org/&quot; \
+      &amp;&amp; npm install
+
+  COPY . /app
+  RUN npm run build
+
+  #指定nginx配置项目，--from=builder 指的是从上一次 build 的结果中提取了编译结果(FROM node:alpine as builder)，即是把刚刚打包生成的dist放进nginx中
+  FROM nginx
+  COPY --from=builder app/dist /usr/share/nginx/html/
+  COPY --from=builder app/nginx.conf /etc/nginx/nginx.conf
+
+
+  #暴露容器80端口
+  EXPOSE 80
+</code></pre></div><p>看到这里，小伙伴们基本上了解 Vue3 的相关操作和基本入门，大家也操作起来吧！</p> <h3 id="效果截图"><a href="#效果截图" class="header-anchor">#</a> 效果截图</h3> <p>我们还是来看看效果截图:</p> <div text="center"><img width="46%" src="https://user-gold-cdn.xitu.io/2020/2/11/17033c65964b8dbc?w=994&amp;h=1748&amp;f=png&amp;s=919836"> <img width="46%" src="https://user-gold-cdn.xitu.io/2020/2/11/17033c6602a7a046?w=994&amp;h=1748&amp;f=png&amp;s=706856"> <img width="46%" src="https://user-gold-cdn.xitu.io/2020/2/11/17033c65cdcb538d?w=994&amp;h=1748&amp;f=png&amp;s=976594"> <img width="46%" src="https://user-gold-cdn.xitu.io/2020/2/11/17033c65add28a16?w=994&amp;h=1748&amp;f=png&amp;s=1136737"> <img width="46%" src="https://user-gold-cdn.xitu.io/2020/2/11/17033c66b2d23e7a?w=994&amp;h=1748&amp;f=png&amp;s=821550"> <img width="46%" src="https://user-gold-cdn.xitu.io/2020/2/11/17033c66e52c1993?w=994&amp;h=1748&amp;f=png&amp;s=580876"></div> <p>最后，武汉加油 ⛽️！</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/xieyezi/vuepress-blog/edit/master/front-end/Vue3写一个疫情查询小工具.md" target="_blank" rel="noopener noreferrer">帮助我改善这个页面</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">4/30/2020, 2:18:45 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/front-end/react入门必知必会知识点.html" class="prev"><i aria-label="icon: left" class="anticon anticon-left"><svg viewBox="64 64 896 896" focusable="false" data-icon="left" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"></path></svg></i>
+        react 入门必知必会知识点(万字总结)
+      </a></span> <span class="next"><a href="/front-end/2019nCoV疫情地图.html">
+        2019nCoV疫情地图
+        <i aria-label="icon: right" class="anticon anticon-right"><svg viewBox="64 64 896 896" focusable="false" data-icon="right" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"></path></svg></i></a></span></p></div> </main> <!----></div><div class="global-ui"><!----><div id="goTop" class="hide-cat" data-v-bf92849a></div></div></div>
+    <script src="/assets/js/app.7334e4b9.js" defer></script><script src="/assets/js/3.623e43ba.js" defer></script><script src="/assets/js/20.97c57d8d.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Git常用命令 | xieyezi</title>
+    <meta name="description" content="">
+    <meta name="generator" content="VuePress 1.8.0">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+    <meta name="description" content="Hi,我是写夜子">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="preload" href="/assets/css/0.styles.ed6e0f15.css" as="style"><link rel="preload" href="/assets/js/app.7334e4b9.js" as="script"><link rel="preload" href="/assets/js/3.623e43ba.js" as="script"><link rel="preload" href="/assets/js/56.46710347.js" as="script"><link rel="prefetch" href="/assets/js/10.d33cb3fc.js"><link rel="prefetch" href="/assets/js/11.cc4dde22.js"><link rel="prefetch" href="/assets/js/12.e6e74628.js"><link rel="prefetch" href="/assets/js/13.dc35e2b8.js"><link rel="prefetch" href="/assets/js/14.136331b6.js"><link rel="prefetch" href="/assets/js/15.51317d5e.js"><link rel="prefetch" href="/assets/js/16.7cfca881.js"><link rel="prefetch" href="/assets/js/17.c0f3d818.js"><link rel="prefetch" href="/assets/js/18.e8851ded.js"><link rel="prefetch" href="/assets/js/19.ad4f68c8.js"><link rel="prefetch" href="/assets/js/20.97c57d8d.js"><link rel="prefetch" href="/assets/js/21.a59c7364.js"><link rel="prefetch" href="/assets/js/22.3066e913.js"><link rel="prefetch" href="/assets/js/23.b644f035.js"><link rel="prefetch" href="/assets/js/24.74671ff5.js"><link rel="prefetch" href="/assets/js/25.80014848.js"><link rel="prefetch" href="/assets/js/26.87432805.js"><link rel="prefetch" href="/assets/js/27.6575c98e.js"><link rel="prefetch" href="/assets/js/28.2397055f.js"><link rel="prefetch" href="/assets/js/29.5c239d49.js"><link rel="prefetch" href="/assets/js/30.9c01c601.js"><link rel="prefetch" href="/assets/js/31.e605cf5d.js"><link rel="prefetch" href="/assets/js/32.c23e3719.js"><link rel="prefetch" href="/assets/js/33.00f1221a.js"><link rel="prefetch" href="/assets/js/34.9c8a3825.js"><link rel="prefetch" href="/assets/js/35.2b2801dd.js"><link rel="prefetch" href="/assets/js/36.945a72e8.js"><link rel="prefetch" href="/assets/js/37.862a5f1a.js"><link rel="prefetch" href="/assets/js/38.96c2314b.js"><link rel="prefetch" href="/assets/js/39.680d9e48.js"><link rel="prefetch" href="/assets/js/4.b04dad39.js"><link rel="prefetch" href="/assets/js/40.cb42f7e8.js"><link rel="prefetch" href="/assets/js/41.59de79c0.js"><link rel="prefetch" href="/assets/js/42.913cc728.js"><link rel="prefetch" href="/assets/js/43.6113c306.js"><link rel="prefetch" href="/assets/js/44.5ab84295.js"><link rel="prefetch" href="/assets/js/45.2ec36e67.js"><link rel="prefetch" href="/assets/js/46.72ecca36.js"><link rel="prefetch" href="/assets/js/47.a44ae3ec.js"><link rel="prefetch" href="/assets/js/48.56cdf5f3.js"><link rel="prefetch" href="/assets/js/49.356a6901.js"><link rel="prefetch" href="/assets/js/5.9d709f31.js"><link rel="prefetch" href="/assets/js/50.be45262c.js"><link rel="prefetch" href="/assets/js/51.2261c253.js"><link rel="prefetch" href="/assets/js/52.c72914bc.js"><link rel="prefetch" href="/assets/js/53.c785307c.js"><link rel="prefetch" href="/assets/js/54.a71848bb.js"><link rel="prefetch" href="/assets/js/55.f2d9c17e.js"><link rel="prefetch" href="/assets/js/57.00bcb3dc.js"><link rel="prefetch" href="/assets/js/58.fb8a784c.js"><link rel="prefetch" href="/assets/js/59.d5cf9f4a.js"><link rel="prefetch" href="/assets/js/6.3fe38c46.js"><link rel="prefetch" href="/assets/js/60.b17ef7ec.js"><link rel="prefetch" href="/assets/js/7.e0c1aab9.js"><link rel="prefetch" href="/assets/js/8.175a13dd.js"><link rel="prefetch" href="/assets/js/9.b08451d5.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.ee9e8610.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ed6e0f15.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="ant-row"><div class="sidebar-button"><i aria-label="icon: bars" class="anticon anticon-bars"><svg viewBox="0 0 1024 1024" focusable="false" data-icon="bars" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M912 192H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 284H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 284H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM104 228a56 56 0 1 0 112 0 56 56 0 1 0-112 0zm0 284a56 56 0 1 0 112 0 56 56 0 1 0-112 0zm0 284a56 56 0 1 0 112 0 56 56 0 1 0-112 0z"></path></svg></i> <span></span></div> <div class="ant-col ant-col-xs-24 ant-col-sm-24 ant-col-md-6 ant-col-lg-5 ant-col-xl-5 ant-col-xxl-4"><a href="/" class="router-link-active home-link"><img src="/logo.png" alt="xieyezi" class="logo"> <span class="site-name">xieyezi</span></a> <div class="search-box mobile-search"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div></div> <div class="ant-col ant-col-xs-0 ant-col-sm-0 ant-col-md-18 ant-col-lg-19 ant-col-xl-19 ant-col-xxl-20"><form id="search-form" role="search" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><ul role="menu" id="nav" class="ant-menu ant-menu-horizontal ant-menu-root ant-menu-light"><li role="menuitem" class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu" style="display:none;"><div aria-haspopup="true" class="ant-menu-submenu-title"><span>···</span><i class="ant-menu-submenu-arrow"></i></div></li><li role="menuitem" class="ant-menu-item"><a href="/" class="router-link-active">
+          首页
+        </a></li><li role="menuitem" class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu" style="display:none;"><div aria-haspopup="true" class="ant-menu-submenu-title"><span>···</span><i class="ant-menu-submenu-arrow"></i></div></li><li role="menuitem" class="ant-menu-item"><a href="/front-end/">
+          🍃前端
+        </a></li><li role="menuitem" class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu" style="display:none;"><div aria-haspopup="true" class="ant-menu-submenu-title"><span>···</span><i class="ant-menu-submenu-arrow"></i></div></li><li role="menuitem" class="ant-menu-submenu ant-menu-submenu-horizontal"><div aria-haspopup="true" class="ant-menu-submenu-title"><span>
+          🌿Flutter
+        </span><i class="ant-menu-submenu-arrow"></i></div></li><li role="menuitem" class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu" style="display:none;"><div aria-haspopup="true" class="ant-menu-submenu-title"><span>···</span><i class="ant-menu-submenu-arrow"></i></div></li><li role="menuitem" class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-submenu-selected"><div aria-haspopup="true" class="ant-menu-submenu-title"><span>
+          🌱其他
+        </span><i class="ant-menu-submenu-arrow"></i></div></li><li role="menuitem" class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu" style="display:none;"><div aria-haspopup="true" class="ant-menu-submenu-title"><span>···</span><i class="ant-menu-submenu-arrow"></i></div></li><li role="menuitem" class="ant-menu-submenu ant-menu-submenu-horizontal"><div aria-haspopup="true" class="ant-menu-submenu-title"><span>
+          🌈联系
+        </span><i class="ant-menu-submenu-arrow"></i></div></li><li role="menuitem" class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu" style="visibility:hidden;position:absolute;"><div aria-haspopup="true" class="ant-menu-submenu-title"><span>···</span><i class="ant-menu-submenu-arrow"></i></div></li></ul> <a href="https://github.com/xieyezi/vuepress-blog" target="_blank" rel="noopener noreferrer" class="repo-link"><i aria-label="icon: github" class="anticon anticon-github"><svg viewBox="64 64 896 896" focusable="false" data-icon="github" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9a127.5 127.5 0 0 1 38.1 91v112.5c.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z"></path></svg></i></a></nav></div></div> <!----></header> <aside class="sidebar"><!----> <ul class="sidebar-links"><li><a href="/other/git/git-flow流程.html" title="git-flow流程解析" class="sidebar-link">git-flow流程解析</a></li><li><a href="/other/git/" aria-current="page" title="git基础知识" class="sidebar-link">git基础知识</a></li><li><a href="/other/git/git 提交规范.html" title="git 提交规范" class="sidebar-link">git 提交规范</a></li><li><a href="/other/git/git常用命令.html" title="git常用命令" class="active sidebar-link">git常用命令</a></li><li><a href="/other/git/git流程步骤.html" title="git流程步骤" class="sidebar-link">git流程步骤</a></li><li><a href="/other/git/删除github项目中指定目录或文件.html" title="删除github项目中指定目录或文件" class="sidebar-link">删除github项目中指定目录或文件</a></li></ul></aside> <main class="page"> <div class="theme-antdocs-content content__default"><h1 id="git-常用命令"><a href="#git-常用命令" class="header-anchor">#</a> Git 常用命令</h1> <ol><li>配置自己的用户名和邮箱：
+git config --global user.name &quot;username&quot;
+git config --global user.email &quot;username@xiaoheiban.com&quot;</li></ol> <p>// 如果某个项目你需要单独配置 user.name, 可以进入到相应的目录
+git config --local user.name &quot;username&quot;
+git config --local user.email &quot;username@xiaoheiban.com&quot;</p> <ol start="2"><li><p>删除某项配置
+git config --unset alias.co</p></li> <li><p>分支查看：
+查看本地分支：（gb）git br
+查看全部分支: （gba）git br -av</p></li> <li><p>创建分支两种方式，如从 master 上创建 develop 分支
+// 创建新的分支，但是不会立即切到新的分支上面
+gb develop master
+// 创建新的分支，并且立即切到新的分支上面
+gcp develop master</p></li> <li><p>切换分支
+// master
+gcm
+// develop
+gcd
+// feature/xx
+gco feature/xx</p></li> <li><p>合并分支
+将 develop 合并到 master：
+// merge
+// rebase
+grbm (git rebase master 基于 master 做 rebase)
+// 解决完冲突后 ga . ,不要做 commit
+grbc (git rebase --continue)
+// 如果不需要当前的 log
+grbs （git rebase --skip）
+// 如果需要终止当前 rebase
+grba （git rebase --abort）</p></li></ol> <p>7.标记</p> <p>a. 打标记：git tag v0.1.0
+b. 查看标记：git tag -l
+c. 删除标记：git tag -d v0.1.0
+d. 删除远程 tag：git push origin :refs/tags/v0.9.3
+e. 推送 tag：git push --tags</p> <ol start="8"><li><p>误删除的文件一次性恢复，两种方式，首先切到 bash 命令模式下或 linux 下直接用：
+git ls-fies -d | xargs git co --
+git ls-files -d | xargs -i git co {}</p></li> <li><p>删除分支</p></li></ol> <p>删除本地分支：gbd feature_test
+删除远程分支：gp origin :feature_test
+清除远程在本地存在，而远程已经删除的分支：git remote prune origin</p> <ol start="10"><li>恢复文件</li></ol> <p>gco -- file
+命令中的“--”很重要，没有“--”，就变成了“创建一个新分支”的命令</p> <ol start="11"><li>查看提交 log</li></ol> <p>glg|glog filename
+可以看到 fileName 相关的 commit 记录</p> <p>glgp
+可以显示每次提交的 diff</p> <p>只看某次提交中的某个文件变化，可以直接加上 fileName</p> <p>git show c5e69804bbd9725b5dece57f8cbece4a96b9f80b filename</p> <ol start="12"><li><p>git stash 命令
+git stash
+git stash pop
+git stash list
+git stash clear
+git stash apply
+git stash apply stash@{1}</p></li> <li><p>提交远程分支</p></li></ol> <p>首次提交分支，需要加-u 与远程分支关联： git push -u origin develop /(gsup)
+关联过只用：git push /(gp)</p> <p>14.拉分支</p> <p>更新当前分支：git pull
+在 master 上分支上更新 devlop 分支：git pull origin develop:develop
+删除远程已被删除的分支： git remote prune origin</p> <ol start="15"><li><p>查看远程地址
+git remote -v
+git remote show origin
+// 修改远程关联分支
+git remote set-url origin newurl</p></li> <li><p>清除修改</p></li></ol> <p>清除本地未提交的修改：（grhh）git reset --hard
+清除本地已提交但是未推送的修改：git reset --hard origin/master</p> <p><a href="https://sourabhbajaj.com/mac-setup/" target="_blank" rel="noopener noreferrer">大神的基本配置<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/xieyezi/vuepress-blog/edit/master/other/git/git常用命令.md" target="_blank" rel="noopener noreferrer">帮助我改善这个页面</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">4/11/2020, 2:07:09 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/other/git/git 提交规范.html" class="prev"><i aria-label="icon: left" class="anticon anticon-left"><svg viewBox="64 64 896 896" focusable="false" data-icon="left" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"></path></svg></i>
+        git 提交规范
+      </a></span> <span class="next"><a href="/other/git/git流程步骤.html">
+        git流程步骤
+        <i aria-label="icon: right" class="anticon anticon-right"><svg viewBox="64 64 896 896" focusable="false" data-icon="right" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"></path></svg></i></a></span></p></div> </main> <!----></div><div class="global-ui"><!----><div id="goTop" class="hide-cat" data-v-bf92849a></div></div></div>
+    <script src="/assets/js/app.7334e4b9.js" defer></script><script src="/assets/js/3.623e43ba.js" defer></script><script src="/assets/js/56.46710347.js" defer></script>
+  </body>
+</html>
